@@ -5,8 +5,8 @@ export default function Home() {
   let [state, setState] = useState("welcome");
 
   return (
-    <div className="flex min-h-screen items-start justify-center">
-      <motion.div className="mt-40 w-full max-w-md rounded border border-zinc-700 text-zinc-300">
+    <div className="flex min-h-screen items-center justify-center">
+      <motion.div className="w-full max-w-md rounded  text-zinc-300">
         <motion.h1 className="mb-8 px-8 pt-8 text-center text-4xl font-thin text-zinc-100">
           Title
         </motion.h1>
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
             <motion.div>
-              <AnimatePresence initial={false} exitBeforeEnter>
+              <AnimatePresence initial={false}>
                 {state === "welcome" && (
                   <motion.div
                     key="welcome"
@@ -85,34 +85,34 @@ export default function Home() {
   );
 }
 
-let duration = 1;
-let variants = {
-  hidden: {
-    opacity: 0,
-    height: 0,
-    transition: { duration },
-  },
-  visible: {
-    opacity: 1,
-    height: "auto",
-    transition: { duration },
-  },
-};
-
-// Exit leaves first
 // let duration = 1;
 // let variants = {
 //   hidden: {
 //     opacity: 0,
 //     height: 0,
-//     transition: { duration, opacity: { duration: duration / 2 } },
+//     transition: { duration },
 //   },
 //   visible: {
 //     opacity: 1,
 //     height: "auto",
-//     transition: {
-//       duration,
-//       opacity: { delay: duration / 2, duration: duration / 2 },
-//     },
+//     transition: { duration },
 //   },
 // };
+
+// Exit leaves first
+let duration = 1;
+let variants = {
+  hidden: {
+    opacity: 0,
+    height: 0,
+    transition: { duration, opacity: { duration: duration / 2 } },
+  },
+  visible: {
+    opacity: 1,
+    height: "auto",
+    transition: {
+      duration,
+      opacity: { delay: duration / 2, duration: duration / 2 },
+    },
+  },
+};
