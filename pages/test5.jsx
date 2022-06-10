@@ -26,7 +26,7 @@ export default function Test4() {
         </div>
 
         <ResizingPanel>
-          {expand === true ? (
+          {count % 3 === 0 ? (
             <p>
               And something longer. Lorem ipsum dolor sit amet consectetur
               adipisicing elit. Repudiandae modi vel odio, aliquid quibusdam
@@ -34,6 +34,8 @@ export default function Test4() {
               deleniti recusandae nostrum quae voluptatibus dolorem quasi
               tempore?
             </p>
+          ) : count % 3 === 1 ? (
+            <p>Another thing. Lorem ipsum dolor sit amet consectetur</p>
           ) : (
             <p>Something short.</p>
           )}
@@ -52,7 +54,7 @@ export default function Test4() {
   );
 }
 
-let duration = 0.5;
+let duration = 0.25;
 
 function ResizingPanel({ children }) {
   let [ref, { height }] = useMeasure();
