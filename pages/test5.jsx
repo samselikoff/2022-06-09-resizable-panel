@@ -7,7 +7,7 @@ export default function Test4() {
   let [count, setCount] = useState(0);
 
   return (
-    <div className="flex min-h-screen flex-col p-40 text-zinc-100">
+    <div className="flex min-h-screen flex-col p-10 text-zinc-100">
       <div className="mx-auto h-full w-full max-w-sm border border-zinc-500 px-8 pt-8">
         <h1 className="mb-8 text-center text-3xl font-thin">Hello</h1>
         <div className="mb-8 flex justify-between">
@@ -15,13 +15,13 @@ export default function Test4() {
             className="border px-2 py-1"
             onClick={() => setExpand(!expand)}
           >
-            Toggle
+            Test rerender ({expand ? "y" : "n"})
           </button>
           <button
             className="border px-2 py-1"
             onClick={() => setCount(count + 1)}
           >
-            Rerender (count: {count})
+            Increment ({count})
           </button>
         </div>
 
