@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import useMeasure from "react-use-measure";
 
-export default function Test4() {
+export default function DemoWithControls() {
   let [activeAnimation, setActiveAnimation] = useState("fade");
   let [duration, setDuration] = useState(0.25);
   let [expand, setExpand] = useState(false);
