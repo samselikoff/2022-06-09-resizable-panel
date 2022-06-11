@@ -156,7 +156,7 @@ function ResizablePanel({ children, animationName, duration }) {
     >
       <AnimatePresence initial={false}>
         <motion.div
-          key={JSON.stringify(children, circular())}
+          key={JSON.stringify(children, ignoreCircularReferences())}
           {...animations[animationName]}
           transition={{ duration }}
           className={height ? "absolute" : "relative"}
@@ -176,7 +176,7 @@ function ResizablePanel({ children, animationName, duration }) {
 
   https://github.com/facebook/react/issues/8669#issuecomment-531515508
 */
-const circular = () => {
+const ignoreCircularReferences = () => {
   const seen = new WeakSet();
   return (key, value) => {
     if (key.startsWith("_")) return; // Don't compare React's internal props.
